@@ -1,5 +1,7 @@
 package com.example.eshfeenygraduationproject.eshfeeny.medicine
 
+import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
@@ -9,9 +11,11 @@ import com.example.domain.entity.CategoryResponseItem
 import com.example.eshfeenygraduationproject.databinding.MedicineDetailsItemBinding
 
 class UseCaseAdapter(): ListAdapter<CategoryResponseItem,UseCaseAdapter.UseCaseViewHolder>(UseCaseDiffCallback()) {
+    @SuppressLint("LongLogTag")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UseCaseViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = MedicineDetailsItemBinding.inflate(inflater, parent, false)
+        Log.i("CreateViewHolder UC sh8aal",binding.toString())
         return UseCaseViewHolder(binding)
     }
     override fun onBindViewHolder(holder: UseCaseViewHolder, position: Int) {

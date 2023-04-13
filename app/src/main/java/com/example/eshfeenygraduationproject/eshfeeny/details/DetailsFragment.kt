@@ -6,12 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.example.data.repository.MedicineRepoImpl
 import com.example.eshfeenygraduationproject.databinding.FragmentDetailsBinding
 import com.example.eshfeenygraduationproject.eshfeeny.medicine.SideEffectsAdapter
 import com.example.eshfeenygraduationproject.eshfeeny.medicine.UsageAdapter
 import com.example.eshfeenygraduationproject.eshfeeny.medicine.UseCaseAdapter
 import com.example.eshfeenygraduationproject.eshfeeny.medicine.WarningAdapter
 import com.example.eshfeenygraduationproject.eshfeeny.viewmodel.DetailsViewModel
+import com.example.eshfeenygraduationproject.eshfeeny.viewmodel.MedicineViewModelFactory
 
 
 class DetailsFragment : Fragment() {
@@ -22,8 +25,11 @@ class DetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDetailsBinding.inflate(inflater,container,false)
+        val repo = MedicineRepoImpl()
+        val viewModelFactory = MedicineViewModelFactory(repo)
+        viewModel = ViewModelProvider(this,viewModelFactory)[DetailsViewModel::class.java]
         binding?.lifecycleOwner = viewLifecycleOwner
-
+        //viewModel.setMedicine()
         // for call Use Case RV
         viewModel.medicine.observe(viewLifecycleOwner){
             val useCaseAdapter = UseCaseAdapter()

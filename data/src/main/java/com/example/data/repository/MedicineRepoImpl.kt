@@ -39,4 +39,30 @@ class MedicineRepoImpl {
     //get All Medicine
     suspend fun getMedicineFromRemoteForAllMedicines(): CategoryResponse =
         UserRetrofitInstance.medicineApi.getMedicineFromAllMedicines()
+
+    suspend fun getMedicineDetailsFromRemote(medicineId: Int): CategoryResponse{
+        val response = UserRetrofitInstance.medicineApi.getMedicineDetails(medicineId)
+        if(response.isSuccessful){
+            val detailsResponse = response.body()
+            return CategoryResponse(
+                id = detailsResponse?._id ?: 0,
+                nameAr = detailsResponse?.nameAr ?: "",
+                nameEn = detailsResponse?.nameEn ?: "",
+                amount = detailsResponse?.amount ?: "",
+                images = detailsResponse?.images ?: "",
+                price = detailsResponse?.price ?: 0,
+                usage = detailsResponse?.usage ?: "",
+                volume = detailsResponse?.volume ?: "",
+                warning = detailsResponse?.warning ?: "",
+                sideEffects = detailsResponse?.sideEffects ?: "",
+                description = detailsResponse?.description ?: "",
+                useCase = detailsResponse?.useCases ?: ""
+                // map other properties as needed
+            )
+        }else {
+            throw Exception("Failed to fetch medicine details")
+        }
+    }
+
+
 }
