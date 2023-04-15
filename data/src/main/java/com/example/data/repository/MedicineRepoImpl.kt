@@ -2,6 +2,8 @@ package com.example.data.repository
 
 import com.example.data.remote.apis.UserRetrofitInstance
 import com.example.domain.entity.CategoryResponse
+import com.example.domain.entity.CategoryResponseItem
+import retrofit2.Response
 
 class MedicineRepoImpl {
     //get medicine امساك
@@ -40,28 +42,8 @@ class MedicineRepoImpl {
     suspend fun getMedicineFromRemoteForAllMedicines(): CategoryResponse =
         UserRetrofitInstance.medicineApi.getMedicineFromAllMedicines()
 
-    suspend fun getMedicineDetailsFromRemote(medicineId: Int): CategoryResponse{
-        val response = UserRetrofitInstance.medicineApi.getMedicineDetails(medicineId)
-        if(response.isSuccessful){
-            val detailsResponse = response.body()
-            return CategoryResponse(
-                id = detailsResponse?._id ?: 0,
-                nameAr = detailsResponse?.nameAr ?: "",
-                nameEn = detailsResponse?.nameEn ?: "",
-                amount = detailsResponse?.amount ?: "",
-                images = detailsResponse?.images ?: "",
-                price = detailsResponse?.price ?: 0,
-                usage = detailsResponse?.usage ?: "",
-                volume = detailsResponse?.volume ?: "",
-                warning = detailsResponse?.warning ?: "",
-                sideEffects = detailsResponse?.sideEffects ?: "",
-                description = detailsResponse?.description ?: "",
-                useCase = detailsResponse?.useCases ?: ""
-                // map other properties as needed
-            )
-        }else {
-            throw Exception("Failed to fetch medicine details")
-        }
+    suspend fun getMedicineDetailsFromRemote(id: String): Response<CategoryResponseItem> {
+        return UserRetrofitInstance.medicineApi.getMedicineDetails(id)
     }
 
 

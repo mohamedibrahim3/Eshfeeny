@@ -31,6 +31,6 @@ interface MedicineDataApiService {
     suspend fun getMedicineFromAllMedicines(): CategoryResponse
 
     @GET("/products/{id}")
-    suspend fun getMedicineDetails(@Path("id") medicineId: Int): Response<CategoryResponseItem>
+    suspend fun getMedicineDetails(@Path("id") id: String): Response<CategoryResponseItem>
 
 }

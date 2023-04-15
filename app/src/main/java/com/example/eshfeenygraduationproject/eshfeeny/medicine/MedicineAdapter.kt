@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.domain.entity.CategoryResponseItem
 import com.example.eshfeenygraduationproject.databinding.MedicineItemsBinding
+import com.example.eshfeenygraduationproject.eshfeeny.details.DetailsFragmentDirections
 import com.example.eshfeenygraduationproject.eshfeeny.home.HomeFragmentDirections
 
 
@@ -64,22 +66,8 @@ class MedicineAdapter() : ListAdapter<CategoryResponseItem, MedicineAdapter.View
                 itemBinding.btnCntAddItemId.visibility = View.GONE
             }
            itemBinding.imgVMedicineId.setOnClickListener {
-               val action = HomeFragmentDirections.actionHomeFragment2ToDetailsFragment(
-                   category._id,
-                   category.nameAr,
-                   category.nameEn,
-                   category.images,
-                   category.price,
-                   category.amount,
-                   category.volume,
-                   category.usage,
-                   category.useCases,
-                   category.sideEffects,
-                   category.warning,
-                   category.description
-               )
+               val action = HomeFragmentDirections.actionHomeFragment2ToDetailsFragment(category._id)
                it.findNavController().navigate(action)
-//               itemBinding.imgVMedicineId.findNavController().navigate(R.id.action_homeFragment2_to_detailsFragment)
            }
 
             Log.i("ViewHolder sh8aal",toString())
