@@ -71,6 +71,7 @@ class ImageBottomSheetFragment(private val imageFrom: String) : BottomSheetDialo
     }
 
     private fun takeImage() {
+        //checks if the permission to access the camera is granted
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)
             != PackageManager.PERMISSION_GRANTED
         ) {

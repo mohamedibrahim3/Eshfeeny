@@ -955,10 +955,10 @@
                     android:id="@+id/search_bar"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:visibility="gone"
                     android:backgroundTint="#F7F7F7"
-                    app:menu="@menu/search_menu"
-                    android:hint="ما الذي تبحث عنه؟" />
+                    android:hint="ما الذي تبحث عنه؟"
+                    android:visibility="gone"
+                    app:menu="@menu/search_menu" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
