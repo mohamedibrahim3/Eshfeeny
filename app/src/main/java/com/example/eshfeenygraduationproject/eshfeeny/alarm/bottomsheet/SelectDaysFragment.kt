@@ -10,7 +10,7 @@ import com.example.eshfeenygraduationproject.eshfeeny.alarm.fragment.EditAlarmFr
 import com.example.eshfeenygraduationproject.eshfeeny.alarm.fragment.SetAlarmFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class SelectDaysFragment(private val alarmState: String) : BottomSheetDialogFragment() {
+class SelectDaysFragment() : BottomSheetDialogFragment() {
 
     private var binding: FragmentSelectDaysBinding? = null
     private var selectedRepetition = ""
@@ -32,19 +32,11 @@ class SelectDaysFragment(private val alarmState: String) : BottomSheetDialogFrag
 
     private fun onRepetitionSelected(repetition: String) {
         selectedRepetition = repetition
-        when (alarmState) {
-            "set" -> {
-                val parentFragment = parentFragment as SetAlarmFragment
-                parentFragment.alarmRepetition(selectedRepetition)
-                dismiss()
-            }
-            "edit" -> {
-                val parentFragment = parentFragment as EditAlarmFragment
-                parentFragment.alarmRepetition(selectedRepetition)
-                dismiss()
-            }
-        }
+        (parentFragment as? SetAlarmFragment)?.alarmRepetition(selectedRepetition)
+        (parentFragment as? EditAlarmFragment)?.alarmRepetition(selectedRepetition)
+        dismiss()
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -100,18 +100,15 @@ class DaysAdapter(
     override fun getItemCount(): Int = daysList.size
 
     // binding view to the recycle view each with it value
-    override fun onBindViewHolder(
-        holder: DaysViewHolder,
-        position: Int
-    ) {
+    override fun onBindViewHolder(holder: DaysViewHolder, position: Int) {
         val day = daysList[position]
         holder.bindItem(day)
-        //  using this to change the color of the item when clicked
+
         holder.itemView.setOnClickListener {
-            val oldSelection = selectedPosition
+            val previousPosition = selectedPosition
             selectedPosition = holder.adapterPosition
-            notifyItemChanged(oldSelection)
-            notifyItemChanged(selectedPosition)
+            notifyItemRangeChanged(minOf(previousPosition, selectedPosition), 2)
         }
     }
+
 }
