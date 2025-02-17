@@ -1,44 +1,67 @@
-<h1><del>Eshfeeny</del> MedFinder Android Application</h1>
-	<p>The goal of this application is to find the nearest pharmacy to the user that has medicines, skin care products, and related items. It also includes an alarm to remind the user of treatment dates, an index of body mass and basic metabolic rate, and a search function for medicine through prescription or image recognition. The app also utilizes artificial intelligence to diagnose patients and recommend necessary medicines.</p>
-	<h2>Technologies Used</h2>
-	<ul>
-		<li>Kotlin programming language</li>
-		<li>Design patterns</li>
-		<li>Rooms for database management</li>
-		<li>Retrofit for REST API integration</li>
-		<li>MVVM architecture</li>
-		<li>Onion architecture</li>
-	        <li>Clean architecture</li>
-	        <li>Computer vision and AI for image recognition</li>
-		<li>XML for UI design</li>
-		<li>Google Maps for location-based services</li>
-	</ul>
-	<h2>Features</h2>
-	<ul>
-		<li>Find nearest pharmacy with medicines and skin care products</li>
-		<li>Set reminder alarm for treatment dates</li>
-		<li>Calculate body mass index and basic metabolic rate</li>
-		<li>Search for medicine through prescription or image recognition</li>
-	</ul>
-	<h2>Installation</h2>
-	<p>To install the Eshfeeny Android App, follow the steps below:</p>
-	<ol>
-		<li>Clone the repository to your local machine.</li>
-		<li>Open the project in Android Studio.</li>
-		<li>Build and run the app on an Android emulator or physical device.</li>
-	</ol>
-	<h2>Usage</h2>
-	<p>Upon opening the app, users are prompted to allow access to their device's location. Once granted, the app displays a map with markers indicating nearby pharmacies. Users can tap on a marker to view information about the pharmacy, such as its name, address, and available products.</p>
-	<p>The app's alarm feature allows users to set reminders for treatment dates. Users can also calculate their body mass index and basic metabolic rate using the app's built-in calculator.</p>
-	<p>To search for medicine, users can input the prescription or use image recognition technology to scan an image of the medicine. The app's AI then provides a diagnosis and recommends the necessary medication.</p>
-	<h2>Contributing</h2>
-	<p>If you would like to contribute to the Eshfeeny Android App, please follow the steps below:</p>
-	<ol>
-		<li>Fork the repository.</li>
-		<li>Create a new branch for your changes.</li>
-		<li>Make your changes and commit them.</li>
-		<li>Push your changes to your fork.</li>
-		<li>Submit a pull request.</li>
-	</ol>
-	<h2>License</h2>
-	<p>The Eshfeeny Android App is open-source software licensed under the <a href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+# <del>Eshfeeny</del> MedFinder Android Application
+
+## Overview
+MedFinder is an Android application designed to help users find the nearest pharmacy with available medicines, skincare products, and other health-related items. The app also provides additional healthcare features, including:
+- Medication reminders
+- Body Mass Index (BMI) and Basal Metabolic Rate (BMR) calculations
+- Medicine search through prescription input or image recognition
+- AI-powered diagnosis and medication recommendations
+
+## Technologies Used
+The application is built using modern Android development practices and technologies:
+- **Kotlin** – Primary programming language
+- **MVVM Architecture** – For better separation of concerns
+- **Clean Architecture & Onion Architecture** – Ensuring maintainability and scalability
+- **Room Database** – Local storage for managing data efficiently
+- **Retrofit** – REST API integration for fetching pharmacy and medicine data
+- **Computer Vision & AI** – Image recognition for prescription scanning
+- **Google Maps API** – Location-based pharmacy search
+- **XML** – UI design and layout
+
+## Features
+- **Pharmacy Finder:** Locate the nearest pharmacy with the required medicines and skincare products.
+- **Medication Reminders:** Set alarms for treatment schedules.
+- **Health Calculators:** Calculate BMI and BMR for personalized health tracking.
+- **Smart Search:** Find medicines via prescription input or AI-powered image recognition.
+- **AI Diagnosis:** Get recommendations based on symptoms and prescriptions.
+
+## Installation
+Follow these steps to set up the MedFinder app:
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-username/medfinder.git
+   ```
+2. Open the project in **Android Studio**.
+3. Build and run the app on an **Android emulator** or **physical device**.
+
+## Usage
+- **Grant Location Access:** Upon launching the app, allow location permissions to enable pharmacy search.
+- **Find Nearby Pharmacies:** View pharmacies on a map and tap on markers for detailed information.
+- **Set Medication Reminders:** Use the built-in alarm feature to stay on track with your medication.
+- **Calculate BMI & BMR:** Input personal health details to track fitness and metabolic rates.
+- **Search for Medicines:** Enter a prescription or scan an image for quick lookup.
+- **Receive AI-Powered Recommendations:** Get suggestions for medicines based on symptoms and AI analysis.
+
+## Contributing
+We welcome contributions! To contribute:
+1. Fork the repository.
+2. Create a new branch (`feature-branch`):
+   ```sh
+   git checkout -b feature-branch
+   ```
+3. Commit your changes:
+   ```sh
+   git commit -m "Add new feature"
+   ```
+4. Push to your fork:
+   ```sh
+   git push origin feature-branch
+   ```
+5. Submit a **Pull Request** for review.
+
+## License
+MedFinder is open-source and available under the [MIT License](https://opensource.org/licenses/MIT).
+
+---
+**Note:** This app was initially named *Eshfeeny*, but has since been rebranded to **MedFinder**.
+
