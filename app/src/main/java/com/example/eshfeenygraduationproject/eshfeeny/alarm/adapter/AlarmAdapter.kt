@@ -30,22 +30,13 @@ class AlarmAdapter : ListAdapter<Alarm, AlarmAdapter.ViewHolder>(AlarmDiffCallba
         RecyclerView.ViewHolder(itemBinding.root) {
 
         fun bind(alarm: Alarm) {
-            // Bind alarm data to the view
             if (alarm.alarmTime.isNotEmpty()) {
-                val currentTime = System.currentTimeMillis()
+                val nextAlarmTime = alarm.alarmTime.firstOrNull { it > System.currentTimeMillis() }
+                val formattedTime = SimpleDateFormat("hh:mm a", Locale.getDefault()).format(
+                    Date(nextAlarmTime ?: alarm.alarmTime.last())
+                )
 
-                val pattern = "hh:mm a" // Desired time format
-                val sdf = SimpleDateFormat(pattern, Locale.getDefault())
-                // Find the next alarm time that hasn't passed
-                val nextAlarmTime = alarm.alarmTime.firstOrNull { it > currentTime }
-
-                if (nextAlarmTime != null) {
-                    val formattedTime = sdf.format(Date(nextAlarmTime))
-                    itemBinding.timeTextView.text = formattedTime
-                } else {
-                    val formattedTime = sdf.format(Date(alarm.alarmTime[alarm.alarmTime.lastIndex]))
-                    itemBinding.timeTextView.text = formattedTime
-                }
+                itemBinding.timeTextView.text = formattedTime
                 itemBinding.MedicineNameTextView.text = alarm.name
                 itemBinding.MedicineDescTextView.text = alarm.notes
 
@@ -55,5 +46,6 @@ class AlarmAdapter : ListAdapter<Alarm, AlarmAdapter.ViewHolder>(AlarmDiffCallba
                 }
             }
         }
+
     }
 }

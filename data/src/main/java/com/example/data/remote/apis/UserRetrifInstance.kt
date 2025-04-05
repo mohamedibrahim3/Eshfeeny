@@ -12,7 +12,7 @@ object EshfeenyApiInstance {
 
     private val userRetrofit by lazy {
         Retrofit.Builder()
-            .baseUrl(Constants.ESHFEENY_BASE_URL)
+            .baseUrl(Constants.MEDFINDER_BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
